@@ -18,6 +18,19 @@ describe('isOver18', () => {
         dateNaissance.setFullYear(dateNaissance.getFullYear() - 18);
         expect(isOver18(dateNaissance.toISOString().split('T')[0])).toBe(true);
     });
+
+    it('devrait retourner false pour une personne qui aura 18 ans dans un mois', () => {
+        const today = new Date();
+        const dateNaissance = new Date(today.getFullYear() - 18, today.getMonth() + 1, today.getDate());
+        expect(isOver18(dateNaissance.toISOString().split('T')[0])).toBe(false);
+    });
+
+    it('devrait retourner true pour une personne qui a eu 18 ans hier', () => {
+        const today = new Date();
+        const dateNaissance = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate() - 1);
+        expect(isOver18(dateNaissance.toISOString().split('T')[0])).toBe(true);
+    });
+
 });
 
 describe('isValidPostalCode', () => {
