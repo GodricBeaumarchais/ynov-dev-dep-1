@@ -70,6 +70,10 @@ jobs:
           working-directory: front
           run:  npm run build
 
+        - name: Generate documentation
+          working-directory: front
+          run: npm run tsdoc
+
         - name: Setup
           id: pages
           uses: actions/configure-pages@v3

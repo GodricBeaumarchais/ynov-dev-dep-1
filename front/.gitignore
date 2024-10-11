@@ -2,9 +2,11 @@
 
 # dependencies
 /node_modules
+/public/docs
 /.pnp
 .pnp.js
 .yarn/install-state.gz
+TODO
 
 # testing
 /coverage
