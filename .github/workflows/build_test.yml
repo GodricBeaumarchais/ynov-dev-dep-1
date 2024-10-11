@@ -66,13 +66,13 @@ jobs:
           working-directory: front
           run: rm -rf out/*
 
-        - name: Build the project
-          working-directory: front
-          run:  npm run build
-
         - name: Generate documentation
           working-directory: front
           run: npm run tsdoc
+        
+        - name: Build the project
+          working-directory: front
+          run:  npm run build
 
         - name: Setup
           id: pages
