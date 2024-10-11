@@ -1,7 +1,7 @@
 import Image from "next/image";
-import mainTitle from "@/public/main-title.svg";
-import { FaArrowRightToBracket } from "react-icons/fa6";
 
+import { FaArrowRightToBracket } from "react-icons/fa6";
+const mainTitle = '../../public/main-title.svg';
 
 export default function Header( {onFormOpen}: {onFormOpen: () => void} ) {
 

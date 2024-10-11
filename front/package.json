@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest --coverage --watchAll=false",
-    "tsdoc": "typedoc --entryPointStrategy expand ./app --out public/docs"
+    "tsdoc": "typedoc --entryPointStrategy expand ./app --out public/docs --tsconfig tsconfig.json"
   },
   "dependencies": {
     "@microsoft/tsdoc": "^0.15.0",
