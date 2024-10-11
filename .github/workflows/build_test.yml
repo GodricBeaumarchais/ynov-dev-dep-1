@@ -28,6 +28,14 @@ jobs:
           cd front
           npm install 
           npm run test 
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}  # Ajoutez ce secret dans les paramètres de votre dépôt GitHub
+          directory: ./front/coverage  # Assurez-vous que c'est le bon chemin pour vos rapports de couverture
+          
+  
         
 
   build:
@@ -67,6 +75,8 @@ jobs:
           uses: actions/configure-pages@v3
           with:
             token: ${{ secrets.GITHUB_TOKEN }}
+
+        
 
         - name: Upload Pages artifact
           uses: actions/upload-pages-artifact@v2
