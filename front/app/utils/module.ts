@@ -31,6 +31,6 @@ export const isValidPostalCode = (postalCode: string): boolean => {
  * @returns Vrai si le nom est valide (2 à 25 caractères), faux sinon.
  */
 export const isValidName = (name: string): boolean => {
-    const nameRegex = /^[A-Za-zÀ-ÿ\-]{2,25}$/;
+    const nameRegex = /^[A-Za-zÀ-ÿ\-]{3,25}$/;
     return nameRegex.test(name);
 };
