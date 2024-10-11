@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output: 'export',
+    output: 'standalone',
     basePath: '/ynov-dev-dep-1',
 };
 
