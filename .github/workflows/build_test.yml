@@ -73,11 +73,12 @@ jobs:
         - name: Build the project
           working-directory: front
           run:  npm run build
+
+        - name: Authenticate with npm  
+          run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
         
         - name: build and publish package on NPM
           working-directory: front
-          env:
-            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           run: |
             git config --global user.email "maxime.tancrede@gmail.com"
             git config --global user.name "bomaruche"
