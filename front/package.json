@@ -10,8 +10,11 @@
     "test": "jest --coverage --watchAll=false",
     "tsdoc": "typedoc --entryPointStrategy expand ./app --out public/docs --tsconfig tsconfig.json",
     "build-npm-ci": "set NODE_ENV=production && if exist dist rmdir /s /q dist && mkdir dist && npx babel src --out-dir dist --copy-files",
-    "build-npm": "NODE_ENV=production && rm -rf dist && mkdir dist && npx babel src --out-dir out --copy-files"
+    "build-npm": "NODE_ENV=production && rm -rf out && next build"
   },
+  "files": [
+    "out"
+  ],
   "dependencies": {
     "@microsoft/tsdoc": "^0.15.0",
     "front": "file:",
