@@ -75,6 +75,7 @@ jobs:
           run:  npm run build
         
         - name: build and publish package on NPM
+          working-directory: front
           run: |
            git config --global user.email "maxime.tancrede@gmail.com"
            git config --global user.name "bomaruche"
