@@ -76,15 +76,17 @@ jobs:
         
         - name: build and publish package on NPM
           working-directory: front
+          env:
+            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           run: |
-           git config --global user.email "maxime.tancrede@gmail.com"
-           git config --global user.name "bomaruche"
-           npm run build-npm
-           npm version patch
-           npm publish
-           env:
-             NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
- 
+            git config --global user.email "maxime.tancrede@gmail.com"
+            git config --global user.name "bomaruche"
+            npm run build-npm
+            npm version patch
+            npm publish
+
+          
+
         - name: Setup
           id: pages
           uses: actions/configure-pages@v3
