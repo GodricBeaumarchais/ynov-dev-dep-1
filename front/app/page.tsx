@@ -16,6 +16,7 @@ export default function Home() {
     };
     
   return (
+    
     <div className="min-h-screen bg-mainBlue-500">
       <Header onFormOpen={handleFormOpen}/>
       {formOpen && <Form onClose={handleFormClose} />}
