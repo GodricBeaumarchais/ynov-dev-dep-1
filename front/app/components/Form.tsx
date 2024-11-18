@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { FaXmark } from 'react-icons/fa6';
 import { isOver18, isValidPostalCode } from '../utils/module';
 import validator from 'validator';
+import { toast } from 'sonner';
 
 interface FormData {
     nom: string;
@@ -49,15 +50,19 @@ const Form: React.FC<FormProps> = ({ onClose }) => {
             newErrors.codePostal = "Le code postal doit contenir 5 chiffres.";
         }
 
-        if (Object.keys(newErrors).length > 0) {
-            setErrors(newErrors);
-        } else {
-            console.log('Données du formulaire soumises :', formData);
-            // Ajoutez ici la logique pour traiter les données du formulaire
-        }
         if (!validator.isEmail(formData.email)) {
             newErrors.email = "L'adresse e-mail n'est pas valide.";
         }
+
+        if (Object.keys(newErrors).length > 0) {
+            toast.error("Veuillez corriger les erreurs du formulaire.");
+            setErrors(newErrors);
+        } else {
+            console.log('Données du formulaire soumises :', formData);
+            toast.success("Formulaire soumis avec succès.");
+            // Ajoutez ici la logique pour traiter les données du formulaire
+        }
+        
 
         console.log(errors);
     };
