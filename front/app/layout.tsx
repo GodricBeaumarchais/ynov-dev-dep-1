@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import { Inconsolata } from "next/font/google";
-
-const inconsolata = Inconsolata({ subsets: ['latin'] });
-
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,9 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={inconsolata.className}
-      >
+      <body>
         {children}
       </body>
     </html>
