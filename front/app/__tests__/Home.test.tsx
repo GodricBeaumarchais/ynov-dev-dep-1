@@ -57,4 +57,36 @@ describe('Home Integration Tests', () => {
             expect(errors.length).toBeGreaterThan(0)
         })
     })
+
+
+    it('devrait soumettre le formulaire avec succès et le fermer', async () => {
+        render(<Home />)
+
+        // Ouvrir le formulaire
+        const loginButton = screen.getByRole('button', { name: /login/i })
+        await user.click(loginButton)
+
+        // Remplir le formulaire avec des données valides
+        await user.type(screen.getByLabelText(/^nom$/i), 'Dupont')
+        await user.type(screen.getByLabelText(/^prénom :$/i), 'Jean')
+        await user.type(screen.getByLabelText(/email/i), 'jean.dupont@example.com')
+        await user.type(screen.getByLabelText(/date de naissance/i), '1990-01-01')
+        await user.type(screen.getByLabelText(/ville/i), 'Paris')
+        await user.type(screen.getByLabelText(/code postal/i), '75001')
+
+        // Soumettre le formulaire
+        const form = screen.getByRole('form')
+        fireEvent.submit(form)
+
+        // Vérifier que le toast de succès est appelé
+        await waitFor(() => {
+            expect(toast.success).toHaveBeenCalledWith("Formulaire soumis avec succès.")
+        })
+
+        // Vérifier que le formulaire est fermé
+        await waitFor(() => {
+            expect(screen.queryByRole('form')).not.toBeInTheDocument()
+        })
+    })
+
 })
