@@ -58,12 +58,12 @@ const Form: React.FC<FormProps> = ({ onClose }) => {
             hasError = true;
         }
 
-        if(!isValidName(formData.nom)) {
+        if (!isValidName(formData.nom)) {
             newErrors.nom = "Le nom n'est pas valide.";
             hasError = true;
         }
 
-        if(!isValidName(formData.prenom)) {
+        if (!isValidName(formData.prenom)) {
             newErrors.prenom = "Le prénom n'est pas valide.";
             hasError = true;
         }
@@ -88,22 +88,27 @@ const Form: React.FC<FormProps> = ({ onClose }) => {
                 >
                     <FaXmark className="w-6 h-6" />
                 </button>
-                <form onSubmit={handleSubmit} className="space-y-4" role="form">
+                <form onSubmit={handleSubmit} className="space-y-4" role="form" data-testid="form">
                     <div>
                         <label htmlFor="nom" className="block text-sm font-medium text-gray-200">
                             Nom :
                         </label>
-                        <input 
-                            type="text" 
-                            id="nom" 
-                            name="nom" 
-                            value={formData.nom} 
-                            onChange={handleChange} 
+                        <input
+                            type="text"
+                            id="nom"
+                            name="nom"
+                            value={formData.nom}
+                            onChange={handleChange}
                             required
+                            aria-label="Nom"
+                            data-testid="input-nom"
                             className="mt-1 block w-full bg-mainPurple-400 rounded-md border border-gray-900 pl-2 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         />
                         {errors.nom && (
-                            <p className="text-red-500 text-xs mt-1" data-testid="error-message">
+                            <p
+                                className="text-red-500 text-xs mt-1"
+                                data-testid="error-message-nom"
+                            >
                                 {errors.nom}
                             </p>
                         )}
@@ -113,17 +118,22 @@ const Form: React.FC<FormProps> = ({ onClose }) => {
                         <label htmlFor="prenom" className="block text-sm font-medium text-gray-200">
                             Prénom :
                         </label>
-                        <input 
-                            type="text" 
-                            id="prenom" 
-                            name="prenom" 
-                            value={formData.prenom} 
-                            onChange={handleChange} 
+                        <input
+                            type="text"
+                            id="prenom"
+                            name="prenom"
+                            value={formData.prenom}
+                            onChange={handleChange}
                             required
+                            aria-label="Prénom"
+                            data-testid="input-prenom"
                             className="mt-1 block w-full bg-mainPurple-400 rounded-md border-gray-900 pl-2 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         />
                         {errors.prenom && (
-                            <p className="text-red-500 text-xs mt-1" data-testid="error-message">
+                            <p
+                                className="text-red-500 text-xs mt-1"
+                                data-testid="error-message-prenom"
+                            >
                                 {errors.prenom}
                             </p>
                         )}
@@ -133,17 +143,22 @@ const Form: React.FC<FormProps> = ({ onClose }) => {
                         <label htmlFor="email" className="block text-sm font-medium text-gray-200">
                             Email :
                         </label>
-                        <input 
-                            type="email" 
-                            id="email" 
-                            name="email" 
-                            value={formData.email} 
-                            onChange={handleChange} 
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
                             required
+                            aria-label="Email"
+                            data-testid="input-email"
                             className="mt-1 block w-full bg-mainPurple-400 rounded-md border-gray-900 pl-2 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         />
                         {errors.email && (
-                            <p className="text-red-500 text-xs mt-1" data-testid="error-message">
+                            <p
+                                className="text-red-500 text-xs mt-1"
+                                data-testid="error-message-email"
+                            >
                                 {errors.email}
                             </p>
                         )}
@@ -153,17 +168,22 @@ const Form: React.FC<FormProps> = ({ onClose }) => {
                         <label htmlFor="dateNaissance" className="block text-sm font-medium text-gray-200">
                             Date de naissance :
                         </label>
-                        <input 
-                            type="date" 
-                            id="dateNaissance" 
-                            name="dateNaissance" 
-                            value={formData.dateNaissance} 
-                            onChange={handleChange} 
+                        <input
+                            type="date"
+                            id="dateNaissance"
+                            name="dateNaissance"
+                            value={formData.dateNaissance}
+                            onChange={handleChange}
                             required
+                            aria-label="Date de naissance"
+                            data-testid="input-dateNaissance"
                             className="mt-1 block w-full bg-mainPurple-400 rounded-md border-gray-900 pl-2 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         />
                         {errors.dateNaissance && (
-                            <p className="text-red-500 text-xs mt-1" data-testid="error-message">
+                            <p
+                                className="text-red-500 text-xs mt-1"
+                                data-testid="error-message-dateNaissance"
+                            >
                                 {errors.dateNaissance}
                             </p>
                         )}
@@ -173,17 +193,22 @@ const Form: React.FC<FormProps> = ({ onClose }) => {
                         <label htmlFor="ville" className="block text-sm font-medium text-gray-200">
                             Ville :
                         </label>
-                        <input 
-                            type="text" 
-                            id="ville" 
-                            name="ville" 
-                            value={formData.ville} 
-                            onChange={handleChange} 
+                        <input
+                            type="text"
+                            id="ville"
+                            name="ville"
+                            value={formData.ville}
+                            onChange={handleChange}
                             required
+                            aria-label="Ville"
+                            data-testid="input-ville"
                             className="mt-1 block w-full bg-mainPurple-400 rounded-md border-gray-900 pl-2 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         />
                         {errors.ville && (
-                            <p className="text-red-500 text-xs mt-1" data-testid="error-message">
+                            <p
+                                className="text-red-500 text-xs mt-1"
+                                data-testid="error-message-ville"
+                            >
                                 {errors.ville}
                             </p>
                         )}
@@ -193,25 +218,31 @@ const Form: React.FC<FormProps> = ({ onClose }) => {
                         <label htmlFor="codePostal" className="block text-sm font-medium text-gray-200">
                             Code postal :
                         </label>
-                        <input 
-                            type="text" 
-                            id="codePostal" 
-                            name="codePostal" 
-                            value={formData.codePostal} 
-                            onChange={handleChange} 
+                        <input
+                            type="text"
+                            id="codePostal"
+                            name="codePostal"
+                            value={formData.codePostal}
+                            onChange={handleChange}
                             required
+                            aria-label="Code postal"
+                            data-testid="input-codePostal"
                             className="mt-1 block w-full bg-mainPurple-400 rounded-md border-gray-900 pl-2 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         />
                         {errors.codePostal && (
-                            <p className="text-red-500 text-xs mt-1" data-testid="error-message">
+                            <p
+                                className="text-red-500 text-xs mt-1"
+                                data-testid="error-message-codePostal"
+                            >
                                 {errors.codePostal}
                             </p>
                         )}
                     </div>
 
-                    <button 
+                    <button
                         type="submit"
                         className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-mainBlue-300 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        data-testid="submit-button"
                     >
                         Valider
                     </button>
