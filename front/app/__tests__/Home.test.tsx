@@ -21,7 +21,7 @@ describe('Home Integration Tests', () => {
 
     it('devrait afficher des erreurs pour un formulaire invalide', async () => {
         render(<Home />)
-        
+
         // Ouvrir le formulaire
         const loginButton = screen.getByRole('button', { name: /login/i })
         await user.click(loginButton)
@@ -58,22 +58,22 @@ describe('Home Integration Tests', () => {
         })
     })
 
-
     it('devrait soumettre le formulaire avec succès et le fermer', async () => {
         render(<Home />)
-
+    
         // Ouvrir le formulaire
         const loginButton = screen.getByRole('button', { name: /login/i })
         await user.click(loginButton)
-
+    
         // Remplir le formulaire avec des données valides
-        await user.type(screen.getByLabelText(/^nom$/i), 'Dupont')
-        await user.type(screen.getByLabelText(/^prénom :$/i), 'Jean')
-        await user.type(screen.getByLabelText(/email/i), 'jean.dupont@example.com')
+        await user.type(screen.getByRole('textbox', { name: /nom/i }), 'Dupont')
+        await user.type(screen.getByRole('textbox', { name: /prénom/i }), 'Jean')
+        await user.type(screen.getByRole('textbox', { name: /email/i }), 'jean.dupont@example.com')
+        await user.type(screen.getByRole('textbox', { name: /ville/i }), 'Paris')
+        await user.type(screen.getByRole('textbox', { name: /code postal/i }), '75001')
+        
+        // Pour le champ date, on utilise un sélecteur différent car c'est un input de type date
         await user.type(screen.getByLabelText(/date de naissance/i), '1990-01-01')
-        await user.type(screen.getByLabelText(/ville/i), 'Paris')
-        await user.type(screen.getByLabelText(/code postal/i), '75001')
-
         // Soumettre le formulaire
         const form = screen.getByRole('form')
         fireEvent.submit(form)
